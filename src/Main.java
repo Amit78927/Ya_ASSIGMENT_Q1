@@ -15,14 +15,18 @@ public class Main {
         int sum = 0;
         int total = 0;
         int[] r = new int[n];
-        for (int i = 10; sum < n; i++) {
-            String n1 = Integer.toString(i);
-            int num = n1.length();
-            for (int j = 0; j < num; j++) {
-                total += Math.pow(n1.charAt(j), num);
-
+        for (int i = 10;sum<n; i++) {
+            String n1=Integer.toString(i);
+            int length=n1.length();
+          int num=i%10;
+          int num1=i/10;
+          while(num1>0){
+              total+=Math.pow(num,length);
+              if (num1<10)
+                  total+=Math.pow(num1,length);
+            num=num1%10;
+              num1=num1/10;
             }
-
             if (i == total) {
                 r[sum] = i;
                 sum++;
